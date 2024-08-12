@@ -1,9 +1,8 @@
 import java.util.ArrayList;
 
-public class Biblioteca {
+public class Biblioteca{
 
     private static ArrayList<Livro> livros = new ArrayList<>();
-    private static int codigo;
 
     public static String pesquisarLivro(String titulo){
 
@@ -32,11 +31,15 @@ public class Biblioteca {
 
     public static void adicionarLivro(Livro livro){
 
-        codigo++;
-
-        livro.setCodigo(codigo);
+        livro.setCodigo(gerarCodigoLivro());
 
         livros.add(livro);
+
+    }
+
+    private static int gerarCodigoLivro(){
+
+        return livros.get(livros.size()-1).getCodigo() + 1;
 
     }
     
